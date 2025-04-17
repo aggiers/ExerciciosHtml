@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Loja de Camisetas</title>
+
+  <style>
+    .item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .item p {
+      margin: 0 10px 0 0;
+    }
+  </style>
+  
+</head>
+<body>
+  <h1>Camisetas</h1>
+
+  <div class="item">
+    <p>Camiseta Preta - R$50</p>
+    <button onclick="adicionarAoCarrinho('Camiseta Preta', 50)">Adicionar</button>
+  </div>
+
+  <div class="item">
+    <p>Camiseta Branca - R$40</p>
+    <button onclick="adicionarAoCarrinho('Camiseta Branca', 40)">Adicionar</button>
+  </div>
+
+  <h1>Carrinho</h1>
+  <ul id="lista-carrinho"></ul>
+  <p id="total">Total: R$0</p>
+
+  <script>
+
+    let total = 0;
+
+    function adicionarAoCarrinho(nome, preco) {
+
+      let lista = document.getElementById('lista-carrinho');
+      let item = document.createElement('li');
+      item.innerText = nome + ' - R$' + preco;
+      lista.appendChild(item);
+      total += preco;
+      document.getElementById('total').textContent = `Total: R$${total}`;
+
+    }
+
+  </script>
+</body>
+</html>
