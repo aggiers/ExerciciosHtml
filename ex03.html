@@ -21,11 +21,13 @@
   <h1>Camisetas</h1>
 
   <div class="item">
+    <img id="imagem-preta" src="camisa-preta.webp" alt="">
     <p>Camiseta Preta - R$50</p>
     <button onclick="adicionarAoCarrinho('Camiseta Preta', 50)">Adicionar</button>
   </div>
 
   <div class="item">
+    <img id="imagem-branca" src="camisa-branca.webp" alt="">
     <p>Camiseta Branca - R$40</p>
     <button onclick="adicionarAoCarrinho('Camiseta Branca', 40)">Adicionar</button>
   </div>
@@ -35,6 +37,15 @@
   <p id="total">Total: R$0</p>
 
   <script>
+
+    let imgPreta = document.getElementById('imagem-preta');
+    let imgBranca = document.getElementById('imagem-branca');
+
+    imgPreta.style.width = '150px';
+    imgPreta.style.height = '150px';
+
+    imgBranca.style.width = '150';
+    imgBranca.style.height = '150px';
 
     let total = 0;
 
@@ -47,9 +58,22 @@
 
       total += preco;
 
-      document.getElementById('total').textContent = 'Total: R$' + total;
+      document.getElementById("total").innerText = 'Total: R$' + total;
 
-    }
+      let botaoExcluir = document.createElement("button");
+        botaoExcluir.innerHTML = "Remover item"
+
+        item.appendChild(botaoExcluir);
+        
+
+        botaoExcluir.onclick = function(){
+            item.remove();
+            total -= preco;
+            document.getElementById("total").innerText = 'Total: R$' + total.toFixed(2);
+        }    
+
+        
+}
 
   </script>
 </body>
