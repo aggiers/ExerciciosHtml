@@ -31,7 +31,7 @@
   </div>
 
   <h1>Carrinho</h1>
-  <ul id="lista-carrinho"></ul>
+  <ul id="listaCarrinho"></ul>
   <p id="total">Total: R$0</p>
 
   <script>
@@ -40,12 +40,14 @@
 
     function adicionarAoCarrinho(nome, preco) {
 
-      let lista = document.getElementById('lista-carrinho');
+      let lista = document.getElementById('listaCarrinho');
       let item = document.createElement('li');
       item.innerText = nome + ' - R$' + preco;
       lista.appendChild(item);
+
       total += preco;
-      document.getElementById('total').textContent = `Total: R$${total}`;
+
+      document.getElementById('total').textContent = 'Total: R$' + total;
 
     }
 
